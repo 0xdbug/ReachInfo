@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+    <dict>
+        <key>items</key>
+        <array>
+            <dict>
+                <key>cell</key>
+                <string>PSGroupCell</string>
+                <key>label</key>
+                <string>Orginal idea</string>
+            </dict>
+            <dict>
+                <key>cell</key>
+                <string>PSButtonCell</string>
+                <key>cellClass</key>
+                <string>HBLinkTableCell</string>
+                <key>label</key>
+                <string>Bash terminal widget</string>
+                <key>subtitle</key>
+                <string>A simple bash terminal styled widget for Übersicht.</string>
+                <key>url</key>
+                <string>http://tracesof.net/uebersicht-widgets/#ubersicht-termina-widget</string>
+            </dict>
+            <dict>
+                <key>cell</key>
+                <string>PSGroupCell</string>
+                <key>label</key>
+                <string>Clock Template</string>
+            </dict>
+            <dict>
+                <key>cell</key>
+                <string>PSButtonCell</string>
+                <key>cellClass</key>
+                <string>HBLinkTableCell</string>
+                <key>label</key>
+                <string>ClockView</string>
+                <key>subtitle</key>
+                <string>A simple class that will simulate an analog (or wall like) clock.</string>
+                <key>url</key>
+                <string>https://github.com/nacho4d/ClockView</string>
+            </dict>
+            <dict>
+                <key>cell</key>
+                <string>PSButtonCell</string>
+                <key>cellClass</key>
+                <string>HBLinkTableCell</string>
+                <key>label</key>
+                <string>Clock Sketch Resource</string>
+                <key>subtitle</key>
+                <string>An iPhone clock created in Sketch.</string>
+                <key>url</key>
+                <string>https://www.sketchappsources.com/free-source/3138-iphone-clock-animation-sketch-freebie-resource.html</string>
+            </dict>
+            <dict>
+                <key>cell</key>
+                <string>PSGroupCell</string>
+                <key>label</key>
+                <string>Detailed</string>
+            </dict>
+            <dict>
+                <key>cell</key>
+                <string>PSButtonCell</string>
+                <key>cellClass</key>
+                <string>HBLinkTableCell</string>
+                <key>label</key>
+                <string>iOS-System-Services</string>
+                <key>subtitle</key>
+                <string>A singleton class to gather all available information about a device.</string>
+                <key>url</key>
+                <string>https://github.com/Shmoopi/iOS-System-Services</string>
+            </dict>
+            <dict>
+                <key>cell</key>
+                <string>PSGroupCell</string>
+                <key>label</key>
+                <string>Helped me figure things out</string>
+            </dict>
+            <dict>
+                <key>cellClass</key>
+                <string>HBTwitterCell</string>
+                <key>label</key>
+                <string>ArtikusHG</string>
+                <key>user</key>
+                <string>ArtikusHG</string>
+            </dict>
+            <dict>
+                <key>cell</key>
+                <string>PSGroupCell</string>
+                <key>footerText</key>
+                <string>**This tweak uses some small snippets from other open sourced projects, credits are included above the snippets**</string>
+            </dict>
+        </array>
+        <key>title</key>
+        <string>Credits</string>
+    </dict>
+</plist>

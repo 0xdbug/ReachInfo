@@ -1,0 +1,6 @@
+.DS_store
+.theos
+.dragon
+packages
+vscode
+build.ninja
