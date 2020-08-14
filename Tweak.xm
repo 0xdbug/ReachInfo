@@ -16,7 +16,6 @@
 
 %hook SBReachabilityWindow
 
-// TODO: charasar bo ama garna, widget y tr drwst bka
 - (void)layoutSubviews {
     // layoutSubviews. i know. not a good method to hook. but it was also my only option, trust me its not that bad (in this case, since it wont get called as much/it's not always on screen) & i've done a lot of things to better the performance.
 
