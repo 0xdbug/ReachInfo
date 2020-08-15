@@ -22,4 +22,4 @@ The tweak is also [Open source](http://github.com/1di4r/ReachInfo) meaning you c
 
 ## Support
 
-You can support the development of the tweak by donating [here](http://http://paypal.me/01di4r)
+You can support the development of the tweak by donating [here](http://paypal.me/01di4r)
