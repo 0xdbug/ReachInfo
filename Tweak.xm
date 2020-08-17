@@ -1,5 +1,6 @@
 #import "Tweak.h"
 #import "widgets.h"
+#import <Foundation/Foundation.h>
 
 %group reachinfo
 %hook SBReachabilityBackgroundView
@@ -17,6 +18,10 @@
 %hook SBReachabilityWindow
 
 - (void)layoutSubviews {
+    if(!kEnabled) {
+        %orig;
+        return;
+    }
     // layoutSubviews. i know. not a good method to hook. but it was also my only option, trust me its not that bad (in this case, since it wont get called as much/it's not always on screen) & i've done a lot of things to better the performance.
 
     [RIView removeFromSuperview]; // thanks @Muirey03
@@ -35,20 +40,31 @@
 %end
 %end
 
-#pragma mark - ctor
-static void prefsChanged() {
+#pragma mark - prefreload
+void reloadPrefs () {
     prefs = [[HBPreferences alloc] initWithIdentifier:@"com.1di4r.reachinfoprefs"];
 
     kEnabled = [([prefs objectForKey:@"kEnabled"] ? : @(YES)) boolValue];
     kTemplate = [([prefs objectForKey:@"Template"] ? : @"bashLike") stringValue];
     kChevron = [([prefs objectForKey:@"kChevron"] ? : @(YES)) boolValue];
     H = [([prefs objectForKey:@"kHeight"] ? : @(0)) intValue];
-
 }
+
+void prefsChanged(
+              CFNotificationCenterRef center,
+              void *observer,
+              CFStringRef name,
+              const void *object,
+              CFDictionaryRef userInfo) 
+{
+    reloadPrefs();
+}
+
+#pragma mark - ctor
+
 %ctor {
-    prefsChanged();
-    if (kEnabled) {
-        [UIDevice currentDevice].batteryMonitoringEnabled = YES;
-        %init(reachinfo);
-    }
+    reloadPrefs();
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, prefsChanged, CFSTR("com.1di4r.reachinfoprefs/ReloadPrefs"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    [UIDevice currentDevice].batteryMonitoringEnabled = YES;
+    %init(reachinfo);
 }
