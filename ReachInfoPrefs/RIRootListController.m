@@ -48,13 +48,6 @@
         appearanceSettings.navigationBarBackgroundColor = NAVBG_COLOR;
         self.hb_appearanceSettings = appearanceSettings;
         
-        
-        UIBarButtonItem *applyButton = [[UIBarButtonItem alloc] initWithTitle:@"Apply"
-                                                                       style:UIBarButtonItemStylePlain
-                                                                       target:self
-                                                                       action:@selector(respring)];
-        applyButton.tintColor = [UIColor whiteColor];
-        self.navigationItem.rightBarButtonItem = applyButton;
     }
     
     return self;
@@ -67,13 +60,13 @@
     
     return _specifiers;
 }
-- (void)respring {
-    pid_t pid;
-    const char* args[] = {"sbreload", NULL};
-    posix_spawn(&pid, "/usr/bin/sbreload", NULL, NULL, (char* const*)args, NULL);
+// - (void)respring {
+//     pid_t pid;
+//     const char* args[] = {"sbreload", NULL};
+//     posix_spawn(&pid, "/usr/bin/sbreload", NULL, NULL, (char* const*)args, NULL);
     
-    //[HBRespringController respringAndReturnTo:[NSURL URLWithString:@"prefs:root=ReachInfo"]];
-}
+//     //[HBRespringController respringAndReturnTo:[NSURL URLWithString:@"prefs:root=ReachInfo"]];
+// }
 
 
 
