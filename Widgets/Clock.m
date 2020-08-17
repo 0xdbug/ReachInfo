@@ -8,9 +8,9 @@
 
 #import "Clock.h"
 
-@implementation Clock
+@implementation Clock : Widget
 
-+(void)show{
+-(void)show{
 
         clockView = [[ClockView alloc] initWithFrame:CGRectMake(0, 0, 162, 162)];
         [clockView setClockBackgroundImage:[UIImage imageNamed:clockFacePath].CGImage];

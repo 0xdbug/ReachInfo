@@ -7,9 +7,10 @@
 //
 
 #import "../Tweak.h"
+#import "Widget.h"
 
-@interface Astro : NSObject
-+(void)show;
+@interface Astro : Widget
+-(void)show;
 @end
 
 
