@@ -8,10 +8,10 @@
 
 #import "../Tweak.h"
 #import "ClockView.h"
+#import "Widget.h"
 
-
-@interface Clock : NSObject
-+(void)show;
+@interface Clock : Widget
+-(void)show;
 @end
 
 

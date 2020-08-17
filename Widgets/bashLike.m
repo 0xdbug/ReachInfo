@@ -10,7 +10,7 @@
 
 @implementation bashLike
 
-+ (NSTimeInterval)uptime{
+- (NSTimeInterval)uptime{
     struct timeval boottime;
     int mib[2] = {CTL_KERN, KERN_BOOTTIME};
     size_t size = sizeof(boottime);
@@ -30,7 +30,7 @@
     
 }
 
-+ (NSString *) getIPAddress {    
+- (NSString *) getIPAddress {    
     NSString *address = @"Wi-Fi Not Connected";
     struct ifaddrs *interfaces = NULL;
     struct ifaddrs *temp_addr = NULL;
@@ -58,7 +58,7 @@
 
 } 
 
-+(void)show{
+-(void)show{
 
         UILabel *cmdLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 220, 18)];
         cmdLabel.backgroundColor = [UIColor clearColor];

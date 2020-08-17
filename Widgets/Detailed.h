@@ -9,10 +9,10 @@
 #import "../Tweak.h"
 #import "SSMemoryInfo.h"
 #import "SSDiskInfo.h"
+#import "Widget.h"
 
 
-
-@interface Detailed : NSObject
-+(void)show;
+@interface Detailed : Widget
+-(void)show;
 @end
 

@@ -9,9 +9,9 @@
 #import "Detailed.h"
 
 
-@implementation Detailed
+@implementation Detailed : Widget
 
-+(void)show{
+-(void)show{
 
 if ([[NSFileManager defaultManager] fileExistsAtPath:fontPath]) {
             NSData *fontData = [NSData dataWithContentsOfFile:fontPath];

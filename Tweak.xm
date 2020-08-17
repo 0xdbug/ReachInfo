@@ -27,24 +27,9 @@
     [self addSubview:RIView];
     [self bringSubviewToFront:RIView];
 
-
-#pragma mark - Bash-Like
-    if ([kTemplate isEqual:@"bash"]) {
-        [bashLike show];
-    }
-
-#pragma mark - Clock
-    if ([kTemplate isEqual:@"clock"]) {
-        [Clock show];
-    }
-#pragma mark - The Two Astronauts
-    if ([kTemplate isEqual:@"astronauts"]) {
-        [Astro show];
-    }
-#pragma mark - The Two Astronauts
-    if ([kTemplate isEqual:@"detailed"]) {
-        [Detailed show];
-    }
+    Widget *widget = [[NSClassFromString(kTemplate) alloc] init];
+    if(widget == nil) return;
+    [widget show];
 }
 
 %end
@@ -55,7 +40,7 @@ static void prefsChanged() {
     prefs = [[HBPreferences alloc] initWithIdentifier:@"com.1di4r.reachinfoprefs"];
 
     kEnabled = [([prefs objectForKey:@"kEnabled"] ? : @(YES)) boolValue];
-    kTemplate = [([prefs objectForKey:@"Template"] ? : @"bash") stringValue];
+    kTemplate = [([prefs objectForKey:@"Template"] ? : @"bashLike") stringValue];
     kChevron = [([prefs objectForKey:@"kChevron"] ? : @(YES)) boolValue];
     H = [([prefs objectForKey:@"kHeight"] ? : @(0)) intValue];
 

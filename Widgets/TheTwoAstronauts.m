@@ -10,7 +10,7 @@
 
 @implementation Astro
 
-+(void)show{
+-(void)show{
 
 if ([[NSFileManager defaultManager] fileExistsAtPath:fontPath]) {
             NSData *fontData = [NSData dataWithContentsOfFile:fontPath];

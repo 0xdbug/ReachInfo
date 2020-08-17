@@ -68,10 +68,10 @@
                 </array>
                 <key>validValues</key>
                 <array>
-                    <string>bash</string>
-                    <string>clock</string>
-                    <string>astronauts</string>
-                    <string>detailed</string>
+                    <string>bashLike</string>
+                    <string>Clock</string>
+                    <string>Astro</string>
+                    <string>Detailed</string>
                 </array>
             </dict>
             <dict>

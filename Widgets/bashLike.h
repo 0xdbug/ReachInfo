@@ -7,12 +7,15 @@
 //
 
 #import "../Tweak.h"
+#import "Widget.h"
 #include <sys/sysctl.h>
 #include <ifaddrs.h>
 #include <arpa/inet.h>
 
-@interface bashLike : NSObject
-+(void)show;
+@interface bashLike : Widget
+-(void)show;
+-(NSTimeInterval)uptime;
+-(NSString *)getIPAddress;
 @end
 
 
