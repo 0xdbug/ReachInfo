@@ -22,7 +22,6 @@
         %orig;
         return;
     }
-    // layoutSubviews. i know. not a good method to hook. but it was also my only option, trust me its not that bad (in this case, since it wont get called as much/it's not always on screen) & i've done a lot of things to better the performance.
 
     [RIView removeFromSuperview]; // thanks @Muirey03
     RIView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
