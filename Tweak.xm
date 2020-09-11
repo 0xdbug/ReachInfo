@@ -29,7 +29,7 @@
     RIView.frame = CGRectMake(self.frame.origin.x, -height + H, self.frame.size.width, height);
     //RIView.backgroundColor = [UIColor colorWithRed:15/255.0 green:25/255.0 blue:35/255.0 alpha:1];
     [self addSubview:RIView];
-    [self bringSubviewToFront:RIView];
+    //[self bringSubviewToFront:RIView];
 
     Widget *widget = [[NSClassFromString(kTemplate) alloc] init];
     if(widget == nil) return;
