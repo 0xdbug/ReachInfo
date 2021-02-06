@@ -3,10 +3,11 @@ ARCHS = arm64 arm64e
 include $(THEOS)/makefiles/common.mk
 
 SYSROOT = $(THEOS)/sdks/iPhoneOS13.4.sdk
+PREFIX = $(THEOS)/toolchain/Xcode11.xctoolchain/usr/bin/
 
 BUNDLE_NAME = ReachInfoPrefs
 
-ReachInfoPrefs_FILES = $(wildcard *.m)
+ReachInfoPrefs_FILES = $(wildcard *.m) $(wildcard ./libappearancecell/*.m)
 ReachInfoPrefs_INSTALL_PATH = /Library/PreferenceBundles
 ReachInfoPrefs_FRAMEWORKS = UIKit
 ReachInfoPrefs_PRIVATE_FRAMEWORKS = Preferences
