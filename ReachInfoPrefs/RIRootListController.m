@@ -3,10 +3,10 @@
 @implementation RIRootListController
 
 - (void)viewWillAppear:(BOOL)animated {
-    
-    
     [super viewWillAppear:animated];
     self.navigationController.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    
 }
 
 - (void)viewDidLoad {
@@ -47,10 +47,18 @@
         appearanceSettings.tintColor = TINT_COLOR;
         appearanceSettings.navigationBarBackgroundColor = NAVBG_COLOR;
         self.hb_appearanceSettings = appearanceSettings;
+
         
     }
     
     return self;
+}
+-(void)layoutSubviews{
+    [[UIStackView alloc] setSpacing: 10];
+    AppearanceSelectionTableCell * appearanceStackView =
+        [[AppearanceSelectionTableCell alloc] init];
+
+        appearanceStackView.containerStackView.spacing = 10;
 }
 
 - (NSArray *)specifiers {
@@ -67,7 +75,5 @@
     
 //     //[HBRespringController respringAndReturnTo:[NSURL URLWithString:@"prefs:root=ReachInfo"]];
 // }
-
-
 
 @end

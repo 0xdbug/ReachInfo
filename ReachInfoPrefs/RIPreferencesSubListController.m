@@ -1,6 +1,6 @@
-#include "RICreditsSubListController.h"
+#include "RIPreferencesSubListController.h"
 
-@implementation RICreditsSubListController
+@implementation RIPreferencesSubListController
 
 - (void)viewWillAppear:(BOOL)animated {
     
@@ -55,7 +55,7 @@
 
 - (NSArray *)specifiers {
     if (!_specifiers) {
-        _specifiers = [self loadSpecifiersFromPlistName:@"creditsSub" target:self];
+        _specifiers = [self loadSpecifiersFromPlistName:@"prefsSub" target:self];
     }
     
     return _specifiers;
