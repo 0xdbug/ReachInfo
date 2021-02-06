@@ -9,7 +9,7 @@
 
     NSString *temperature = [weatherData objectForKey:@"temperature"];
     NSString *condition = [weatherData objectForKey:@"conditions"];
-    //NSString *location = [weatherData objectForKey:@"location"];
+    NSString *location = [weatherData objectForKey:@"location"];
     UIImage *conditionsImage = [weatherData objectForKey:@"conditionsImage"];
     
     // MARK: conditionsImageView
@@ -19,7 +19,7 @@
     
     // MARK: info Lables
     self.locationLabel = [UILabel new];
-    _locationLabel.text = @"Location";
+    _locationLabel.text = location;
     _locationLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
     _locationLabel.textColor = [UIColor secondaryLabelColor];
     //_locationLabel.backgroundColor = [UIColor redColor];
