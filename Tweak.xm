@@ -7,30 +7,22 @@
 %property (nonatomic, retain) ReachInfoView *RIView;
 %property (nonatomic, retain) UIView *mdView;
 
--(id)initWithWallpaperVariant:(long long)arg1 { // initializing the tweak
+- (id)initWithWallpaperVariant:(long long)arg1 { // initializing the tweak
     if (!Enabled) return %orig;
-
     self = %orig;
     height = [[%c(SBReachabilityManager) sharedInstance] reachabilityYOffset];
     self.userInteractionEnabled = YES;
     self.RIView = [[ReachInfoView alloc] initWithFrame:CGRectMake(self.frame.origin.x,
                                               -height, self.frame.size.width, height)];
-
-    if (!self.RIView.superview) {
-		[self addSubview:self.RIView];
-		[self bringSubviewToFront:self.RIView];
-
-	}
+    if (!self.RIView.superview) { [self addSubview:self.RIView];  [self bringSubviewToFront:self.RIView]; }
     return self;
 }
 
--(id)hitTest:(CGPoint)arg1 withEvent:(id)arg2 { // passing touches to our widget (Thanks Nepeta)
+- (id)hitTest:(CGPoint)arg1 withEvent:(id)arg2 { // passing touches to our widget (Thanks Nepeta)
     if (!Enabled) return %orig;
     UIView *candidate = %orig;
-    
     if (arg1.y <= 0) {
         candidate = [self.RIView.widget hitTest:[self.RIView.widget convertPoint:arg1 fromView:self] withEvent:arg2];
-
         if (self.mdView) {
             candidate = self.mdView;
             self.mdView = nil;
@@ -49,16 +41,16 @@
 - (void)_setupChevron { // removes grabber
     if (!Enabled) %orig;
 }
--(double)_displayCornerRadius{
-    if (Enabled && CR) return CRValue;
-    return %orig;
+
+- (double)_displayCornerRadius{ // ajdust corner radius of the screen
+    if (Enabled && CR) return CRValue; return %orig;
 }
 
 %end
 
 %hook SBReachabilityManager
 
--(double)reachabilityYOffset { // expanding reachability
+- (double)reachabilityYOffset { // expanding reachability
     if (Enabled && YOffset) return (%orig + YOffsetValue);
     return (%orig + 40);
 }
@@ -68,47 +60,35 @@
     return %orig;
 }
 
--(void)_setKeepAliveTimer { // do not deactivate reachability after certain amount of time
-    if (Enabled && Timeout){
-
-    }else{
-        %orig;
-    }
+- (void)_setKeepAliveTimer { // do not deactivate reachability after certain amount of time
+    if (Enabled && Timeout){ }else{ %orig; }
 }
 
 %end
 
 %hook SBCoverSheetPrimarySlidingViewController
--(void)handleReachabilityModeActivated { // should disable swipe down for notification center on the widgets
-    if (Enabled && !NC){
-
-    }else{
-        %orig;
-    }
+- (void)handleReachabilityModeActivated { // should disable swipe down for notification center on the widgets
+    if (Enabled && !NC){ }else{ %orig; }
 }
-
+%end
 %end
 
-%end
-
-// too bugy for release
+// too buggy for release
 // %hook SBReachabilitySettings
-// -(void)setYOffsetFactor:(double)arg1{
+// - (void)setYOffsetFactor:(double)arg1{
 //     arg1 = -arg1;
 //     NSLog(@"[ReachInfo] %f", arg1);
 //     %orig;
 // }
 
-// -(double)yOffset{
+// - (double)yOffset{
 //     double daYOffset = %orig;
 //     NSLog(@"[ReachInfo] yOffset: %f", daYOffset);
 //     return %orig;
 // }
-
-
 // %end
 
-void reloadPrefs () {
+void reloadPrefs() {
     prefs = [[HBPreferences alloc] initWithIdentifier:@"com.1di4r.reachinfoprefs"];
     Enabled = [([prefs objectForKey:@"kEnabled"] ? : @(YES)) boolValue];
     Widget = [([prefs objectForKey:@"Widget"] ? : 0) intValue];
@@ -125,17 +105,16 @@ void reloadPrefs () {
 }
 
 void prefsChanged(
-              CFNotificationCenterRef center,
-              void *observer,
-              CFStringRef name,
-              const void *object,
-              CFDictionaryRef userInfo) {
-                reloadPrefs();
+    CFNotificationCenterRef center,
+    void *observer,
+    CFStringRef name,
+    const void *object,
+    CFDictionaryRef userInfo) {
+        reloadPrefs();
     }
 
 %ctor {
     reloadPrefs();
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, prefsChanged, CFSTR("com.1di4r.reachinfoprefs/ReloadPrefs"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     %init(reachinfo);
-
 }

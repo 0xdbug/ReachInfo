@@ -9,8 +9,7 @@
 
 @implementation RIClock
 
--(void)show{
-
+- (void)show{
     clockView = [ClockView new];
     [clockView setClockBackgroundImage:[UIImage imageNamed:([self isLightMode] ? clockFaceDarkPath : clockFacePath)].CGImage];
     [clockView setSecHandImage:[UIImage imageNamed:clockSecPath].CGImage];
@@ -22,17 +21,16 @@
     [clockView start];
     [self setupViews];
 }
--(void)setupViews{
+- (void)setupViews{
     [clockView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [clockView.widthAnchor constraintEqualToConstant:190].active = YES;
     [clockView.heightAnchor constraintEqualToConstant:190].active = YES;
     [clockView.centerYAnchor constraintEqualToAnchor:self.superview.centerYAnchor].active = YES;
     [clockView.centerXAnchor constraintEqualToAnchor:self.superview.centerXAnchor].active = YES;
 }
--(BOOL)isLightMode{
+- (BOOL)isLightMode{
     if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleLight) return YES;
     return NO;
 }
-
 
 @end

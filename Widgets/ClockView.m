@@ -5,7 +5,6 @@
 
 #import "ClockView.h"
 
-
 @implementation ClockView
 
 #pragma mark - Public Methods

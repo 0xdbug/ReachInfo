@@ -10,9 +10,7 @@
 #import <PeterDev/libpddokdo.h>
 
 @interface WeatherDataView : UIView
-
 -(void)dataView;
-
 @property (nonatomic, retain) UILabel *lowTempLabel;
 @property (nonatomic, retain) UILabel *highTempLabel;
 @property (nonatomic, retain) UILabel *lowTempValue;
@@ -22,5 +20,4 @@
 
 @property (nonatomic, retain) UIImageView *sunriseView;
 @property (nonatomic, retain) UIImageView *sunsetView;
-
 @end

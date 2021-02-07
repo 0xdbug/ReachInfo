@@ -4,7 +4,6 @@
 #import <Cephei/HBPreferences.h>
 #import "../Helpers/UIDevice+notchedDevice.h"
 
-
 @interface SBMediaController : NSObject{
     //NSDictionary* _nowPlayingInfo;
 }
@@ -17,23 +16,20 @@
 - (BOOL)toggleShuffleForEventSource:(long long)arg1;
 - (BOOL)toggleRepeatForEventSource:(long long)arg1;
 -(id)_nowPlayingInfo;
-
 @end
 
 @interface MRUVisualStylingProvider : NSObject
--(id)init;
--(void)applyStyle:(long long)arg1 toView:(id)arg2;
+- (id)init;
+- (void)applyStyle:(long long)arg1 toView:(id)arg2;
 @end
 
 @interface MediaControlsPanelViewController : UIViewController
-
-+(id)panelViewControllerForCoverSheet;
--(NSInteger)style;
--(void)setStyle:(NSInteger)arg1 ;
-
++ (id)panelViewControllerForCoverSheet;
+- (NSInteger)style;
+- (void)setStyle:(NSInteger)arg1 ;
 @end
-@interface MRUNowPlayingTimeControlsView : UIControl
 
+@interface MRUNowPlayingTimeControlsView : UIControl
 @end
 
 @interface MRUNowPlayingControlsView : UIView
@@ -49,7 +45,6 @@
 
 @interface MRUNowPlayingViewController: UIViewController
 + (id)coversheetViewController;
-
 @property (nonatomic,retain) MRUNowPlayingView * view;
 @property (nonatomic,retain) MRUVisualStylingProvider * stylingProvider;
 -(void)setMediaControls:(MPMediaControls *)arg1;
@@ -60,7 +55,6 @@
 @interface RIMediaPlayer : UIView
 @property (nonatomic, retain) MRUNowPlayingViewController *MRUNowPlayingViewController;
 @property (nonatomic, retain) MediaControlsPanelViewController *MediaControlsPanelViewController;
-
 @end
 
 BOOL MediaBG;

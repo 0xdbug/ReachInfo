@@ -11,8 +11,4 @@
 @property (nonatomic, retain) UILabel *EventLabel;
 @property (nonatomic, retain) UILabel *EventContent;
 @property (nonatomic, retain) UILabel *EventDate;
-
 @end
-
-//BOOL isToday;
-//BOOL isTomorrow;

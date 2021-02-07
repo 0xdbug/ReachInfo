@@ -23,7 +23,7 @@
     return self;
 }
 
--(void)didMoveToWindow{
+- (void)didMoveToWindow{
     
     // MARK: weatherDataView
     [self.heightAnchor constraintEqualToConstant:60].active = YES;
@@ -48,75 +48,74 @@
     
     // MARK: lowTempLabel
     self.lowTempLabel = [UILabel new];
-    _lowTempLabel.text = @"lowTemp";
-    _lowTempLabel.font = [UIFont systemFontOfSize:11 weight:UIFontWeightSemibold];
-    _lowTempLabel.textColor = [UIColor secondaryLabelColor];
-    //_lowTempLabel.backgroundColor = [UIColor redColor];
-    [_lowTempLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self addSubview:_lowTempLabel];
+    self.lowTempLabel.text = @"lowTemp";
+    self.lowTempLabel.font = [UIFont systemFontOfSize:11 weight:UIFontWeightSemibold];
+    self.lowTempLabel.textColor = [UIColor secondaryLabelColor];
+    //self.lowTempLabel.backgroundColor = [UIColor redColor];
+    [self.lowTempLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self addSubview:self.lowTempLabel];
     self.lowTempValue = [UILabel new];
-    _lowTempValue.text = lowTemperature;
-    _lowTempValue.font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
-    //_lowTempValue.textColor = [UIColor secondaryLabelColor];
-    //_lowTempValue.backgroundColor = [UIColor redColor];
-    [_lowTempValue setTranslatesAutoresizingMaskIntoConstraints:NO];
-    _lowTempValue.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:_lowTempValue];
+    self.lowTempValue.text = lowTemperature;
+    self.lowTempValue.font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
+    //self.lowTempValue.textColor = [UIColor secondaryLabelColor];
+    //self.lowTempValue.backgroundColor = [UIColor redColor];
+    [self.lowTempValue setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.lowTempValue.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:self.lowTempValue];
 
     // MARK:highestTemp
     self.highTempLabel = [UILabel new];
-    _highTempLabel.text = @"highTemp";
-    _highTempLabel.font = [UIFont systemFontOfSize:11 weight:UIFontWeightSemibold];
-    _highTempLabel.textColor = [UIColor secondaryLabelColor];
-    //_highTempLabel.backgroundColor = [UIColor redColor];
-    [_highTempLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self addSubview:_highTempLabel];
+    self.highTempLabel.text = @"highTemp";
+    self.highTempLabel.font = [UIFont systemFontOfSize:11 weight:UIFontWeightSemibold];
+    self.highTempLabel.textColor = [UIColor secondaryLabelColor];
+    //self.highTempLabel.backgroundColor = [UIColor redColor];
+    [self.highTempLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self addSubview:self.highTempLabel];
     self.highTempValue = [UILabel new];
-    _highTempValue.text = highTemperature;
-    _highTempValue.font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
+    self.highTempValue.text = highTemperature;
+    self.highTempValue.font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
     //highTempValue.textColor = [UIColor secondaryLabelColor];
-    //_highTempValue.backgroundColor = [UIColor redColor];
-    [_highTempValue setTranslatesAutoresizingMaskIntoConstraints:NO];
-    _highTempValue.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:_highTempValue];
+    //self.highTempValue.backgroundColor = [UIColor redColor];
+    [self.highTempValue setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.highTempValue.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:self.highTempValue];
     
     //MARK: sunrise
     self.sunriseView = [[UIImageView alloc] initWithImage:[UIImage systemImageNamed:@"sunrise"]];
-    _sunriseView.tintColor = [UIColor labelColor];
+    self.sunriseView.tintColor = [UIColor labelColor];
     [self.sunriseView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self addSubview:self.sunriseView];
     self.sunriseLabel = [UILabel new];
-    _sunriseLabel.text = [formatter stringFromDate:sunrise];
-    _sunriseLabel.font = [UIFont systemFontOfSize:11 weight:UIFontWeightSemibold];
-    _sunriseLabel.textColor = [UIColor secondaryLabelColor];
-    //_sunriseView.backgroundColor = [UIColor redColor];
-    _sunriseView.contentMode = UIViewContentModeScaleAspectFit;
-    [_sunriseLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self addSubview:_sunriseLabel];
+    self.sunriseLabel.text = [formatter stringFromDate:sunrise];
+    self.sunriseLabel.font = [UIFont systemFontOfSize:11 weight:UIFontWeightSemibold];
+    self.sunriseLabel.textColor = [UIColor secondaryLabelColor];
+    //self.sunriseView.backgroundColor = [UIColor redColor];
+    self.sunriseView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.sunriseLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self addSubview:self.sunriseLabel];
     
     //MARK: sunset
     self.sunsetView = [[UIImageView alloc] initWithImage:[UIImage systemImageNamed:@"sunset"]];
-    _sunsetView.tintColor = [UIColor labelColor];
+    self.sunsetView.tintColor = [UIColor labelColor];
     [self.sunsetView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self addSubview:self.sunsetView];
     self.sunsetLabel = [UILabel new];
-    _sunsetLabel.text = [formatter stringFromDate:sunset];
-    _sunsetLabel.font = [UIFont systemFontOfSize:11 weight:UIFontWeightSemibold];
-    _sunsetLabel.textColor = [UIColor secondaryLabelColor];
-    //_sunsetView.backgroundColor = [UIColor redColor];
-    _sunsetView.contentMode = UIViewContentModeScaleAspectFit;
-    [_sunsetLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self addSubview:_sunsetLabel];
+    self.sunsetLabel.text = [formatter stringFromDate:sunset];
+    self.sunsetLabel.font = [UIFont systemFontOfSize:11 weight:UIFontWeightSemibold];
+    self.sunsetLabel.textColor = [UIColor secondaryLabelColor];
+    //self.sunsetView.backgroundColor = [UIColor redColor];
+    self.sunsetView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.sunsetLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self addSubview:self.sunsetLabel];
     
     [self setupViews];
     
 }
 
--(void)setupViews{
+- (void)setupViews{
     // MARK: highTempLabel
     [self.highTempLabel.centerYAnchor constraintEqualToAnchor:self.bottomAnchor constant:-13].active = YES;
     [self.highTempLabel.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:15].active = YES;
-    
     
     [self.highTempValue.centerYAnchor constraintEqualToAnchor:self.highTempLabel.topAnchor constant:-15].active = YES;
     [self.highTempValue.centerXAnchor constraintEqualToAnchor:self.highTempLabel.centerXAnchor constant:0].active = YES;
@@ -127,7 +126,6 @@
     [self.lowTempLabel.centerXAnchor constraintEqualToAnchor:self.centerXAnchor constant:-50].active = YES;
     //[self.lowTempLabel.leadingAnchor constraintEqualToAnchor:self.highTempLabel.trailingAnchor constant:10].active = YES;
 
-        
     [self.lowTempValue.centerYAnchor constraintEqualToAnchor:self.lowTempLabel.topAnchor constant:-15].active = YES;
     [self.lowTempValue.centerXAnchor constraintEqualToAnchor:self.lowTempLabel.centerXAnchor constant:0].active = YES;
         
