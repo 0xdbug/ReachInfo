@@ -43,7 +43,7 @@
 }
 
 - (double)_displayCornerRadius{ // ajdust corner radius of the screen
-    if (Enabled && CR) return CRValue; return %orig;
+    if (Enabled && CR) return CRValue; return 0.0;
 }
 
 %end
@@ -97,7 +97,7 @@ void reloadPrefs() {
     NC = [([prefs objectForKey:@"kNC"] ? : @(NO)) boolValue];
     Timeout = [([prefs objectForKey:@"kTimeout"] ? : @(YES)) boolValue];
 
-    YOffset = [([prefs objectForKey:@"kYOffset"] ? : @(YES)) boolValue];
+    YOffset = [([prefs objectForKey:@"kYOffset"] ? : @(NO)) boolValue];
     YOffsetValue = [([prefs objectForKey:@"kYOffsetValue"] ? : 0) floatValue];
 
     CR = [([prefs objectForKey:@"kCR"] ? : @(NO)) boolValue];
