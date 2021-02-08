@@ -5,14 +5,12 @@
 #import <Cephei/HBRespringController.h>
 #import <Cephei/HBPreferences.h>
 #import <spawn.h>
+#import "libappearancecell/libappearancecell.h"
 
 @interface RIRootListController : HBRootListController
-
 @end
 
-
 #define iconPath @"/Library/PreferenceBundles/ReachInfoPrefs.bundle/icon.png"
-
 
 #define TINT_COLOR                                                            \
     [UIColor colorWithRed:48.0 / 255.0                                          \

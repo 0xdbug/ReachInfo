@@ -1,9 +1,9 @@
 Package: com.twickd.1di4r.reachinfo
 Name: ReachInfo
-Depends: mobilesubstrate, ws.hbang.common (>= 1.11)
-Version: 1.1.5
+Version: 2.1.1
 Architecture: iphoneos-arm
 Description: Reachability modernized.
 Maintainer: 1di4r
 Author: 1di4r
 Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), preferenceloader (>= 2.2.3), firmware (>= 13.0), com.peterdev.libpddokdo

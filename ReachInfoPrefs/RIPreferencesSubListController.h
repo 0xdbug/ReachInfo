@@ -5,7 +5,7 @@
 #import <CepheiPrefs/HBTwitterCell.h>
 #import <Cephei/HBPreferences.h>
 
-@interface RICreditsSubListController : HBListController
+@interface RIPreferencesSubListController : HBListController
 @end
 
 #define iconPath @"/Library/PreferenceBundles/ReachInfoPrefs.bundle/icon.png"
@@ -25,4 +25,3 @@
                     green:130.0 / 255.0                                          \
                      blue:135.0 / 255.0                                          \
                     alpha:1.0];
-                    

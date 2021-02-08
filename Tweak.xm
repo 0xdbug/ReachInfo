@@ -1,68 +1,120 @@
 #import "Tweak.h"
-#import "widgets.h"
-#import <Foundation/Foundation.h>
 
 %group reachinfo
-%hook SBReachabilityBackgroundView
-
-- (void)_setupChevron {
-    if (kChevron) {
-
-    } else {
-        %orig;
-    }
-}
-
-%end
 
 %hook SBReachabilityWindow
 
-- (void)layoutSubviews {
-    if(!kEnabled) {
-        %orig;
-        return;
+%property (nonatomic, retain) ReachInfoView *RIView;
+%property (nonatomic, retain) UIView *mdView;
+
+- (id)initWithWallpaperVariant:(long long)arg1 { // initializing the tweak
+    if (!Enabled) return %orig;
+    self = %orig;
+    height = [[%c(SBReachabilityManager) sharedInstance] reachabilityYOffset];
+    self.userInteractionEnabled = YES;
+    self.RIView = [[ReachInfoView alloc] initWithFrame:CGRectMake(self.frame.origin.x,
+                                              -height, self.frame.size.width, height)];
+    if (!self.RIView.superview) { [self addSubview:self.RIView];  [self bringSubviewToFront:self.RIView]; }
+    return self;
+}
+
+- (id)hitTest:(CGPoint)arg1 withEvent:(id)arg2 { // passing touches to our widget (Thanks Nepeta)
+    if (!Enabled) return %orig;
+    UIView *candidate = %orig;
+    if (arg1.y <= 0) {
+        candidate = [self.RIView.widget hitTest:[self.RIView.widget convertPoint:arg1 fromView:self] withEvent:arg2];
+        if (self.mdView) {
+            candidate = self.mdView;
+            self.mdView = nil;
+        } else {
+            self.mdView = candidate;
+        }
     }
-
-    [RIView removeFromSuperview]; // thanks @Muirey03
-    RIView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    CGFloat height = [[%c(SBReachabilityManager) sharedInstance] effectiveReachabilityYOffset];
-    RIView.frame = CGRectMake(self.frame.origin.x, -height + H, self.frame.size.width, height);
-    [self addSubview:RIView];
-    //[self bringSubviewToFront:RIView];
-
-    Widget *widget = [[NSClassFromString(kTemplate) alloc] init];
-    if(widget == nil) return;
-    [widget show];
+    NSLog(@"[ReachInfo] %@", candidate);
+    return candidate;
 }
 
 %end
+
+%hook SBReachabilityBackgroundView
+
+- (void)_setupChevron { // removes grabber
+    if (!Enabled) %orig;
+}
+
+- (double)_displayCornerRadius{ // ajdust corner radius of the screen
+    if (Enabled && CR) return CRValue; return 0.0;
+}
+
 %end
 
-#pragma mark - prefreload
-void reloadPrefs () {
-    prefs = [[HBPreferences alloc] initWithIdentifier:@"com.1di4r.reachinfoprefs"];
+%hook SBReachabilityManager
 
-    kEnabled = [([prefs objectForKey:@"kEnabled"] ? : @(YES)) boolValue];
-    kTemplate = [([prefs objectForKey:@"Template"] ? : @"bashLike") stringValue];
-    kChevron = [([prefs objectForKey:@"kChevron"] ? : @(YES)) boolValue];
-    H = [([prefs objectForKey:@"kHeight"] ? : @(0)) intValue];
+- (double)reachabilityYOffset { // expanding reachability
+    if (Enabled && YOffset) return (%orig + YOffsetValue);
+    return (%orig + 40);
+}
+
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1 { // disabling Reachability swipe down
+    if (Enabled && (![arg1 isKindOfClass:%c(SBScreenEdgePanGestureRecognizer)] && ![arg1 isKindOfClass:%c(SBReachabilityGestureRecognizer)])) return false;
+    return %orig;
+}
+
+- (void)_setKeepAliveTimer { // do not deactivate reachability after certain amount of time
+    if (Enabled && Timeout){ }else{ %orig; }
+}
+
+%end
+
+%hook SBCoverSheetPrimarySlidingViewController
+- (void)handleReachabilityModeActivated { // should disable swipe down for notification center on the widgets
+    if (Enabled && !NC){ }else{ %orig; }
+}
+%end
+%end
+
+// too buggy for release
+// %hook SBReachabilitySettings
+// - (void)setYOffsetFactor:(double)arg1{
+//     arg1 = -arg1;
+//     NSLog(@"[ReachInfo] %f", arg1);
+//     %orig;
+// }
+
+// - (double)yOffset{
+//     double daYOffset = %orig;
+//     NSLog(@"[ReachInfo] yOffset: %f", daYOffset);
+//     return %orig;
+// }
+// %end
+
+void reloadPrefs() {
+    prefs = [[HBPreferences alloc] initWithIdentifier:@"com.1di4r.reachinfoprefs"];
+    Enabled = [([prefs objectForKey:@"kEnabled"] ? : @(YES)) boolValue];
+    Widget = [([prefs objectForKey:@"Widget"] ? : 0) intValue];
+
+    Shuffle = [([prefs objectForKey:@"kShuffle"] ? : @(NO)) boolValue];
+    NC = [([prefs objectForKey:@"kNC"] ? : @(NO)) boolValue];
+    Timeout = [([prefs objectForKey:@"kTimeout"] ? : @(YES)) boolValue];
+
+    YOffset = [([prefs objectForKey:@"kYOffset"] ? : @(NO)) boolValue];
+    YOffsetValue = [([prefs objectForKey:@"kYOffsetValue"] ? : 0) floatValue];
+
+    CR = [([prefs objectForKey:@"kCR"] ? : @(NO)) boolValue];
+    CRValue = [([prefs objectForKey:@"kCRValue"] ? : 0) floatValue];
 }
 
 void prefsChanged(
-              CFNotificationCenterRef center,
-              void *observer,
-              CFStringRef name,
-              const void *object,
-              CFDictionaryRef userInfo) 
-{
-    reloadPrefs();
-}
-
-#pragma mark - ctor
+    CFNotificationCenterRef center,
+    void *observer,
+    CFStringRef name,
+    const void *object,
+    CFDictionaryRef userInfo) {
+        reloadPrefs();
+    }
 
 %ctor {
     reloadPrefs();
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, prefsChanged, CFSTR("com.1di4r.reachinfoprefs/ReloadPrefs"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-    [UIDevice currentDevice].batteryMonitoringEnabled = YES;
     %init(reachinfo);
 }

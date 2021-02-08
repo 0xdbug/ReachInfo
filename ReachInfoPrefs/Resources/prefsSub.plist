@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+    <dict>
+        <key>items</key>
+        <array>
+            <dict>
+                <key>cell</key>
+                <string>PSGroupCell</string>
+                <key>label</key>
+                <string>General</string>
+                <key>footerText</key>
+				<string>When disabled swiping down on widgets will be ignored.</string>
+            </dict>
+            <dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>default</key>
+				<false />
+				<key>defaults</key>
+				<string>com.1di4r.reachinfoprefs</string>
+				<key>key</key>
+				<string>kShuffle</string>
+				<key>label</key>
+				<string>Shuffle</string>
+				<key>PostNotification</key>
+				<string>com.1di4r.reachinfoprefs/ReloadPrefs</string>
+			</dict>
+            <dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>default</key>
+				<true />
+				<key>defaults</key>
+				<string>com.1di4r.reachinfoprefs</string>
+				<key>key</key>
+				<string>kTimeout</string>
+				<key>label</key>
+				<string>Disable Timeout</string>
+				<key>PostNotification</key>
+				<string>com.1di4r.reachinfoprefs/ReloadPrefs</string>
+			</dict>
+            <dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>default</key>
+				<false />
+				<key>defaults</key>
+				<string>com.1di4r.reachinfoprefs</string>
+				<key>key</key>
+				<string>kNC</string>
+				<key>label</key>
+				<string>Swipe to show Notifications</string>
+				<key>PostNotification</key>
+				<string>com.1di4r.reachinfoprefs/ReloadPrefs</string>
+			</dict>
+            <dict>
+                <key>cell</key>
+                <string>PSGroupCell</string>
+                <key>label</key>
+                <string>MediaPlayer</string>
+                <key>footerText</key>
+				<string>When Enabled Background-Color will be changed based on the ArtWork.</string>
+            </dict>
+            <dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>default</key>
+				<true />
+				<key>defaults</key>
+				<string>com.1di4r.reachinfoprefs</string>
+				<key>key</key>
+				<string>kMediaBG</string>
+				<key>label</key>
+				<string>Set Background based on ArtWork</string>
+				<key>PostNotification</key>
+				<string>com.1di4r.reachinfoprefs/ReloadPrefs</string>
+			</dict>
+            <dict>
+                <key>cell</key>
+                <string>PSGroupCell</string>
+                <key>label</key>
+                <string>Layout</string>
+                <key>footerText</key>
+				<string>Adjust Y-Offset of Reachability.</string>
+            </dict>
+            <dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>default</key>
+				<false />
+				<key>defaults</key>
+				<string>com.1di4r.reachinfoprefs</string>
+				<key>key</key>
+				<string>kYOffset</string>
+				<key>label</key>
+				<string>Enabled</string>
+				<key>PostNotification</key>
+				<string>com.1di4r.reachinfoprefs/ReloadPrefs</string>
+			</dict>
+            <dict>
+				<key>cell</key>
+				<string>PSSliderCell</string>
+                <key>min</key>
+                <real>-50</real>
+                <key>max</key>
+                <real>150</real>
+                <key>showValue</key>
+                <true />
+				<key>defaults</key>
+				<string>com.1di4r.reachinfoprefs</string>
+				<key>key</key>
+				<string>kYOffsetValue</string>
+				<key>PostNotification</key>
+				<string>com.1di4r.reachinfoprefs/ReloadPrefs</string>
+			</dict>
+            <dict>
+                <key>cell</key>
+                <string>PSGroupCell</string>
+                <key>footerText</key>
+				<string>Adjust Corner Radius of the Screen.</string>
+            </dict>
+            <dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>default</key>
+				<false />
+				<key>defaults</key>
+				<string>com.1di4r.reachinfoprefs</string>
+				<key>key</key>
+				<string>kCR</string>
+				<key>label</key>
+				<string>Enabled</string>
+				<key>PostNotification</key>
+				<string>com.1di4r.reachinfoprefs/ReloadPrefs</string>
+			</dict>
+            <dict>
+				<key>cell</key>
+				<string>PSSliderCell</string>
+                <key>min</key>
+                <real>0</real>
+                <key>max</key>
+                <real>100</real>
+				<key>defaults</key>
+				<string>com.1di4r.reachinfoprefs</string>
+				<key>key</key>
+				<string>kCRValue</string>
+                <key>isSegmented</key>
+                <true />
+                <key>segmentCount</key>
+                <integer>15</integer>
+				<key>PostNotification</key>
+				<string>com.1di4r.reachinfoprefs/ReloadPrefs</string>
+			</dict>
+            
+        </array>
+        <key>title</key>
+        <string>Preferences</string>
+    </dict>
+</plist>

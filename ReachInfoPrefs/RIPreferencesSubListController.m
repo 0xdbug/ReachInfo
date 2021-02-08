@@ -1,6 +1,6 @@
-#include "RIRootListController.h"
+#include "RIPreferencesSubListController.h"
 
-@implementation RIRootListController
+@implementation RIPreferencesSubListController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -15,6 +15,7 @@
         UINavigationItemLargeTitleDisplayModeNever;
     }
 }
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     self.navigationController.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -24,8 +25,6 @@
         UINavigationItemLargeTitleDisplayModeNever;
     }
 }
-
-
 - (instancetype) init {
     self = [super init];
     if (self) {
@@ -34,7 +33,6 @@
         
         HBAppearanceSettings * appearanceSettings =
         [[HBAppearanceSettings alloc] init];
-        
         appearanceSettings.tableViewCellSeparatorColor = [UIColor clearColor];
         appearanceSettings.tintColor = TINT_COLOR;
         appearanceSettings.navigationBarBackgroundColor = NAVBG_COLOR;
@@ -42,19 +40,11 @@
     }
     return self;
 }
-
 - (NSArray *)specifiers {
     if (!_specifiers) {
-        _specifiers = [self loadSpecifiersFromPlistName:@"Root" target:self];
+        _specifiers = [self loadSpecifiersFromPlistName:@"prefsSub" target:self];
     }
     return _specifiers;
 }
-// - (void)respring {
-//     pid_t pid;
-//     const char* args[] = {"sbreload", NULL};
-//     posix_spawn(&pid, "/usr/bin/sbreload", NULL, NULL, (char* const*)args, NULL);
-    
-//     //[HBRespringController respringAndReturnTo:[NSURL URLWithString:@"prefs:root=ReachInfo"]];
-// }
 
 @end

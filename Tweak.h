@@ -1,44 +1,26 @@
+#import <UIKit/UIKit.h>
 #import <Cephei/HBPreferences.h>
-#include <CoreText/CTFontManager.h>
-
-@interface SBReachabilityBackgroundViewController : UIViewController
-@end
+#import "ReachInfoView.h"
 
 @interface SBReachabilityManager : NSObject
 + (id)sharedInstance;
-@property (nonatomic,readonly) BOOL reachabilityModeActive;    //@synthesize reachabilityModeActive=_reachabilityModeActive - In the implementation block
+@property (nonatomic,readonly) BOOL reachabilityModeActive;
 @property (assign,nonatomic) BOOL reachabilityEnabled;
-@property (nonatomic,readonly) double effectiveReachabilityYOffset;    //@synthesize effectiveReachabilityYOffset=_effectiveReachabilityYOffset - In the implementation block
+@property (nonatomic,readonly) double reachabilityYOffset;
 @end
-
 
 @interface SBReachabilityWindow : UIWindow
-
+@property (nonatomic, strong) UIView *view;
+@property (nonatomic, strong) UIView *mdView;
+@property (nonatomic, strong) ReachInfoView *RIView;
 @end
 
-
-@interface SBIconController : UIViewController
-- (void)viewDidAppear:(BOOL)animated;
-@end
-
+CGFloat height;
 HBPreferences *prefs;
-
-UIView *RIView;
-NSString *fontName;
-
-int H;
-BOOL kEnabled;
-NSString *kTemplate;
-BOOL kChevron;
-
-NSString *deviceName;
-
-#define clockFacePath @"/Library/Application Support/ReachInfo.bundle/ClockFace.png"
-#define clockSecPath @"/Library/Application Support/ReachInfo.bundle/ClockSec.png"
-#define clockMinPath @"/Library/Application Support/ReachInfo.bundle/ClockMin.png"
-#define clockHourPath @"/Library/Application Support/ReachInfo.bundle/ClockHour.png"
-#define firstAstronautPath @"/Library/Application Support/ReachInfo.bundle/firstAstronaut.png"
-#define secondAstronautPath @"/Library/Application Support/ReachInfo.bundle/secondAstronaut.png"
-#define fontPath @"/Library/Application Support/ReachInfo.bundle/Roboto.ttf"
-
-
+BOOL Enabled;
+BOOL NC;
+BOOL Timeout;
+BOOL YOffset;
+float YOffsetValue;
+BOOL CR;
+float CRValue;

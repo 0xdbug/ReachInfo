@@ -1,14 +1,9 @@
-//
-//  ClockView.m
-//  clock
-//
 //  Created by Ignacio Enriquez Gutierrez on 1/31/11.
 //  Copyright 2011 Nacho4D. All rights reserved.
-//  See the file License.txt for copying permission.
+//  See the file https://github.com/nacho4d/ClockView/blob/master/License.txt for copying permission.
 //
 
 #import "ClockView.h"
-
 
 @implementation ClockView
 
