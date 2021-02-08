@@ -86,6 +86,7 @@
 }
 - (void)updateLabel{ // yes
     self.remindersContent.text = reminderCon;
+    self.remindersDate.text = reminderDateS;
 }
 - (void)setupViews{ // Setting up views and constraints
     
@@ -106,12 +107,14 @@
     [self.remindersView.centerXAnchor constraintEqualToAnchor:self.superview.centerXAnchor].active = YES;
     
     [self.remindersContent setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.remindersContent.widthAnchor constraintEqualToConstant:self.bounds.size.width - 20].active = YES;
+    //[self.remindersContent.widthAnchor constraintEqualToConstant:self.bounds.size.width - 20].active = YES;
+    [self.remindersContent.trailingAnchor constraintEqualToAnchor:self.remindersDate.leadingAnchor constant:-3].active = YES;
+    [self.remindersContent.leadingAnchor constraintEqualToAnchor:self.remindersView.leadingAnchor constant:10].active = YES;
     [self.remindersContent.centerYAnchor constraintEqualToAnchor:self.remindersView.centerYAnchor constant:0].active = YES;
-    [self.remindersContent.centerXAnchor constraintEqualToAnchor:self.remindersView.centerXAnchor constant:10].active = YES;
+    //[self.remindersContent.centerXAnchor constraintEqualToAnchor:self.remindersView.centerXAnchor constant:10].active = YES;
     
     [self.remindersDate setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.remindersDate.widthAnchor constraintEqualToConstant:100].active = YES;
+    //[self.remindersDate.widthAnchor constraintEqualToConstant:100].active = YES;
     [self.remindersDate.centerYAnchor constraintEqualToAnchor:self.remindersView.centerYAnchor constant:0].active = YES;
     //[self.EventDate.centerXAnchor constraintEqualToAnchor:self.EventView.trailingAnchor constant:-40].active = YES;
     [self.remindersDate.trailingAnchor constraintEqualToAnchor:self.remindersView.trailingAnchor constant:-20].active = YES;
@@ -129,12 +132,14 @@
     [self.EventView.centerXAnchor constraintEqualToAnchor:self.superview.centerXAnchor].active = YES;
     
     [self.EventContent setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.EventContent.widthAnchor constraintEqualToConstant:self.bounds.size.width - 20].active = YES;
+    //[self.EventContent.widthAnchor constraintEqualToConstant:self.bounds.size.width - 20].active = YES;
+    [self.EventContent.trailingAnchor constraintEqualToAnchor:self.EventDate.leadingAnchor constant:-3].active = YES;
+    [self.EventContent.leadingAnchor constraintEqualToAnchor:self.EventView.leadingAnchor constant:10].active = YES;
     [self.EventContent.centerYAnchor constraintEqualToAnchor:self.EventView.centerYAnchor constant:0].active = YES;
-    [self.EventContent.centerXAnchor constraintEqualToAnchor:self.EventView.centerXAnchor constant:10].active = YES;
+    //[self.EventContent.centerXAnchor constraintEqualToAnchor:self.EventView.centerXAnchor constant:10].active = YES;
     
     [self.EventDate setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.EventDate.widthAnchor constraintEqualToConstant:100].active = YES;
+    //[self.EventDate.widthAnchor constraintEqualToConstant:100].active = YES;
     [self.EventDate.centerYAnchor constraintEqualToAnchor:self.EventView.centerYAnchor constant:0].active = YES;
     //[self.EventDate.centerXAnchor constraintEqualToAnchor:self.EventView.trailingAnchor constant:-40].active = YES;
     [self.EventDate.trailingAnchor constraintEqualToAnchor:self.EventView.trailingAnchor constant:-20].active = YES;
