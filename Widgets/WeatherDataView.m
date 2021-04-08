@@ -7,6 +7,7 @@
 //
 
 #import "WeatherDataView.h"
+FOUNDATION_EXPORT NSLocaleKey const NSLocaleTemperatureUnit;
 
 @implementation WeatherDataView
 
@@ -36,11 +37,14 @@
 
     [[PDDokdo sharedInstance] refreshWeatherData];
     NSDictionary *weatherData = [[PDDokdo sharedInstance] weatherData];
+    
+    NSString *tempUnit = [[[NSLocale currentLocale] objectForKey:NSLocaleTemperatureUnit] stringValue];
+    NSDictionary *units = @{@"Celsius" : @0, @"Fahrenheit" : @1};
 
     NSDate *sunrise = [weatherData objectForKey:@"sunrise"];
     NSDate *sunset = [weatherData objectForKey:@"sunset"];
-    NSString *highTemperature = [[PDDokdo sharedInstance] highestTemperatureIn:0];
-    NSString *lowTemperature = [[PDDokdo sharedInstance] lowestTemperatureIn:0];
+    NSString *highTemperature = [[PDDokdo sharedInstance] highestTemperatureIn:[[units objectForKey: tempUnit] intValue]];
+    NSString *lowTemperature = [[PDDokdo sharedInstance] lowestTemperatureIn:[[units objectForKey: tempUnit] intValue]];
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"h:mm a"];
