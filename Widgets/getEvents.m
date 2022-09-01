@@ -9,8 +9,7 @@
 #import "getEvents.h"
 
 @implementation getEvents
-
-+(NSString *)Events:(NSString *)Event from:(int)days{
++ (NSString *)Events:(NSString *)Event from:(int)days{
     
     EKEventStore *store = [[EKEventStore alloc] init];
     NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -38,7 +37,6 @@
             formatter.dateFormat = @"MMM, d";
             EventDateS = [NSString stringWithFormat:@"%@", [formatter stringFromDate:[sortedEvents[0] startDate]]];            
             return [NSString stringWithFormat:@"%@", [sortedEvents[0] title]];
-            
         }
         EventDateS = @" ";
         return @"No Upcoming Events";
@@ -83,6 +81,4 @@
     }
     
 }
-
-
 @end

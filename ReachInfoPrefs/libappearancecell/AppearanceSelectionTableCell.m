@@ -35,7 +35,7 @@
 
         self.captionLabel = [[UILabel alloc] init];
         self.captionLabel.text = text;
-        [self.captionLabel setFont:[UIFont systemFontOfSize:17.0f]];
+        [self.captionLabel setFont:[UIFont systemFontOfSize:15.0f]];
         [self.captionLabel.heightAnchor constraintEqualToConstant:20].active = true;
 
         [self addArrangedSubview:self.captionLabel];
@@ -104,7 +104,7 @@
         self.containerStackView.axis = UILayoutConstraintAxisHorizontal;
         self.containerStackView.alignment = UIStackViewAlignmentCenter;
         self.containerStackView.distribution = UIStackViewDistributionEqualSpacing;
-        self.containerStackView.spacing = 20;
+        self.containerStackView.spacing = 15;
         self.containerStackView.translatesAutoresizingMaskIntoConstraints = false;
 
         for (NSDictionary *option in self.options) {

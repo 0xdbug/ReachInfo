@@ -6,7 +6,6 @@
 #import <Cephei/HBPreferences.h>
 
 @interface RICreditsSubListController : HBListController
-
 @end
 
 #define iconPath @"/Library/PreferenceBundles/ReachInfoPrefs.bundle/icon.png"

@@ -10,7 +10,7 @@
 #import <EventKit/EventKit.h>
 
 @interface getEvents : NSObject
-+(NSString *)Events:(NSString *)Event from:(int)days;
++ (NSString *)Events:(NSString *)Event from:(int)days;
 @end
 
 NSString *reminderCon;

@@ -70,6 +70,12 @@
 						<key>image</key>
 						<string>Clock</string>
 					</dict>
+					<dict>
+						<key>text</key>
+						<string>Terminal</string>
+						<key>image</key>
+						<string>Terminal</string>
+					</dict>
                     <dict>
 						<key>text</key>
 						<string>UpNext</string>

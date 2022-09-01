@@ -2,14 +2,14 @@
 
 @implementation RIWeather
 
--(void)show{
+- (void)show{
 
     [[PDDokdo sharedInstance] refreshWeatherData];
     NSDictionary *weatherData = [[PDDokdo sharedInstance] weatherData];
-
+    
     NSString *temperature = [weatherData objectForKey:@"temperature"];
     NSString *condition = [weatherData objectForKey:@"conditions"];
-    //NSString *location = [weatherData objectForKey:@"location"];
+    NSString *location = [weatherData objectForKey:@"location"];
     UIImage *conditionsImage = [weatherData objectForKey:@"conditionsImage"];
     
     // MARK: conditionsImageView
@@ -19,30 +19,30 @@
     
     // MARK: info Lables
     self.locationLabel = [UILabel new];
-    _locationLabel.text = @"Location";
-    _locationLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
-    _locationLabel.textColor = [UIColor secondaryLabelColor];
-    //_locationLabel.backgroundColor = [UIColor redColor];
-    [_locationLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self addSubview:_locationLabel];
+    self.locationLabel.text = location;
+    self.locationLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
+    self.locationLabel.textColor = [UIColor secondaryLabelColor];
+    //self.locationLabel.backgroundColor = [UIColor redColor];
+    [self.locationLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self addSubview:self.locationLabel];
     
     self.infoLabel = [UILabel new];
-    _infoLabel.text = [NSString stringWithFormat:@"%@, %@", condition, temperature];
-    _infoLabel.font = [UIFont systemFontOfSize:20 weight:UIFontWeightSemibold];
-    //_infoLabel.textColor = [UIColor secondaryLabelColor];
-    //_infoLabel.backgroundColor = [UIColor redColor];
-    [_infoLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self addSubview:_infoLabel];
+    self.infoLabel.text = [NSString stringWithFormat:@"%@, %@", condition, temperature];
+    self.infoLabel.font = [UIFont systemFontOfSize:20 weight:UIFontWeightSemibold];
+    //self.infoLabel.textColor = [UIColor secondaryLabelColor];
+    //self.infoLabel.backgroundColor = [UIColor redColor];
+    [self.infoLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self addSubview:self.infoLabel];
     
     // MARK: weatherDataView
     self.weatherView = [WeatherDataView new];
-    [self addSubview:_weatherView];
-    [_weatherView dataView];
+    [self addSubview:self.weatherView];
+    [self.weatherView dataView];
 
     [self setupViews];
 }
 
--(void)setupViews{
+- (void)setupViews{
     
     // MARK: images
     [self.conditionsImageView.centerYAnchor constraintEqualToAnchor:self.superview.centerYAnchor constant:-70].active = YES;
@@ -55,7 +55,6 @@
 
     // ha ha 69, the funny number
     [self.conditionsImageView.heightAnchor constraintEqualToConstant:69].active = YES;
-    
     
     // MARK: Labels
     [self.locationLabel.centerYAnchor constraintEqualToAnchor:self.conditionsImageView.centerYAnchor constant:0].active = YES;

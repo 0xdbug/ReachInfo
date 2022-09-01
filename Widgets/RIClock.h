@@ -11,4 +11,3 @@
 #define clockMinDarkPath @"/Library/Application Support/ReachInfo.bundle/ClockMin_dark.png"
 #define clockHourPath @"/Library/Application Support/ReachInfo.bundle/ClockHour.png"
 #define clockHourDarkPath @"/Library/Application Support/ReachInfo.bundle/ClockHour_dark.png"
-
