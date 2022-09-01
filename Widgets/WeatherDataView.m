@@ -37,12 +37,13 @@ FOUNDATION_EXPORT NSLocaleKey const NSLocaleTemperatureUnit;
 
     [[PDDokdo sharedInstance] refreshWeatherData];
     NSDictionary *weatherData = [[PDDokdo sharedInstance] weatherData];
-    
+
     NSString *tempUnit = [[[NSLocale currentLocale] objectForKey:NSLocaleTemperatureUnit] stringValue];
     NSDictionary *units = @{@"Celsius" : @0, @"Fahrenheit" : @1};
 
     NSDate *sunrise = [weatherData objectForKey:@"sunrise"];
     NSDate *sunset = [weatherData objectForKey:@"sunset"];
+    
     NSString *highTemperature = [[PDDokdo sharedInstance] highestTemperatureIn:[[units objectForKey: tempUnit] intValue]];
     NSString *lowTemperature = [[PDDokdo sharedInstance] lowestTemperatureIn:[[units objectForKey: tempUnit] intValue]];
 

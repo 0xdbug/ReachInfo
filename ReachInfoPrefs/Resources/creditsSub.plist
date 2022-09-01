@@ -53,6 +53,18 @@
                 <key>subtitle</key>
                 <string>iOS style appearance selector</string>
             </dict>
+            <dict>
+                <key>cell</key>
+                <string>PSButtonCell</string>
+                <key>cellClass</key>
+                <string>HBLinkTableCell</string>
+                <key>label</key>
+                <string>Terminal</string>
+                <key>url</key>
+                <string>https://github.com/vecnehladny/ubersicht-termina-widget</string>
+                <key>subtitle</key>
+                <string>Original idea</string>
+            </dict>
         </array>
         <key>title</key>
         <string>Credits</string>
