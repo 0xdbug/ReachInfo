@@ -1,14 +1,14 @@
 //
-//  bashLike.m
+//  RITerminal.m
 //  ReachInfo
 //
 //  Created by 1di4r on 7/31/20.
 //  Copyright © 2020 1di4r. All rights reserved.
 //
 
-#import "bashLike.h"
+#import "RITerminal.h"
 
-@implementation bashLike
+@implementation RITerminal
 
 - (NSTimeInterval)uptime{
     struct timeval boottime;

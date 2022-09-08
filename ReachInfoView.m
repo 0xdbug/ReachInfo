@@ -2,10 +2,10 @@
 
 @implementation ReachInfoView
 
-- (id)initWithFrame:(CGRect)frame{ 
+- (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) { // display widget when ReachInfoView gets initialized
-        NSArray *widgetsArray = @[@"RIMediaPlayer", @"RIClock", @"bashLike", @"RIReminders", @"RIWeather"];
+        NSArray *widgetsArray = @[@"RIMediaPlayer", @"RIClock", @"RITerminal", @"RIAstro", @"RIWeather", @"RIReminders"];
         NSString *selectedWidget = widgetsArray[Widget];
 
         if (@available(iOS 13.0, *)) self.backgroundColor = [UIColor systemBackgroundColor];

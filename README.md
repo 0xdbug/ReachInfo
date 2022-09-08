@@ -1,7 +1,5 @@
 ## ReachInfo
 Reachability modernized.
-Get it from [Twickd](https://repo.twickd.com/).
+Get it from [Twickd](https://repo.twickd.com/get/com.twickd.1di4r.reachinfo).
 
-## Contribution
-Have an idea? you can contact me [@1di4r](http://twitter.com/1di4r).
-The tweak is also [Open source](http://github.com/1di4r/ReachInfo).
+[twitter](http://twitter.com/).

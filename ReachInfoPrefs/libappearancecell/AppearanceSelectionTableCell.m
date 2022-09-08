@@ -14,7 +14,7 @@
 
         self.feedbackGenerator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
         [self.feedbackGenerator prepare];
-        
+
         self.defaults = [[NSUserDefaults alloc] initWithSuiteName:specifier.properties[@"defaults"]];
         [self.defaults registerDefaults:@{ self.key : @0 }];
 
@@ -31,12 +31,12 @@
         self.iconView.image = image;
 
         [self addArrangedSubview:self.iconView];
-        [self.iconView.widthAnchor constraintEqualToConstant:60].active = true;
+        [self.iconView.widthAnchor constraintEqualToConstant:55].active = true;
 
         self.captionLabel = [[UILabel alloc] init];
         self.captionLabel.text = text;
         [self.captionLabel setFont:[UIFont systemFontOfSize:15.0f]];
-        [self.captionLabel.heightAnchor constraintEqualToConstant:20].active = true;
+        [self.captionLabel.heightAnchor constraintEqualToConstant:17].active = true;
 
         [self addArrangedSubview:self.captionLabel];
 
@@ -50,8 +50,8 @@
         self.checkmarkButton.translatesAutoresizingMaskIntoConstraints = false;
         self.checkmarkButton.selected = [[self.defaults objectForKey:self.key] intValue] == self.type;
         self.checkmarkButton.tintColor = (self.checkmarkButton.selected) ? (self.tintColor ? [UIColor colorFromHexString:self.tintColor] : [UIColor systemBlueColor]) : [UIColor systemGrayColor];
-        [self.checkmarkButton.heightAnchor constraintEqualToConstant:22].active = true;
-        [self.checkmarkButton.widthAnchor constraintEqualToConstant:22].active = true;
+        [self.checkmarkButton.heightAnchor constraintEqualToConstant:20].active = true;
+        [self.checkmarkButton.widthAnchor constraintEqualToConstant:20].active = true;
 
         [self.checkmarkButton setImage:[[UIImage kitImageNamed:@"UIRemoveControlMultiNotCheckedImage.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
         [self.checkmarkButton setImage:[[UIImage kitImageNamed:@"UITintedCircularButtonCheckmark.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateSelected];
@@ -59,7 +59,7 @@
         [self addArrangedSubview:self.checkmarkButton];
 
         self.tapGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(buttonTapped:)];
-        self.tapGestureRecognizer.minimumPressDuration = 0;
+        self.tapGestureRecognizer.minimumPressDuration = 0.07;
         [self setUserInteractionEnabled:true];
         [self addGestureRecognizer:self.tapGestureRecognizer];
     }
@@ -100,16 +100,19 @@
         NSBundle *prefsBundle = [NSBundle bundleForClass:[specifier.target class]];
         self.options = specifier.properties[@"options"];
 
+        self.containerScrollView = [[UIScrollView alloc] init];
+        self.containerScrollView.translatesAutoresizingMaskIntoConstraints = false;
+
         self.containerStackView = [[UIStackView alloc] init];
         self.containerStackView.axis = UILayoutConstraintAxisHorizontal;
         self.containerStackView.alignment = UIStackViewAlignmentCenter;
         self.containerStackView.distribution = UIStackViewDistributionEqualSpacing;
-        self.containerStackView.spacing = 15;
+        self.containerStackView.spacing = 20;
         self.containerStackView.translatesAutoresizingMaskIntoConstraints = false;
 
         for (NSDictionary *option in self.options) {
-            AppearanceTypeStackView *stackView = [[AppearanceTypeStackView alloc] initWithType:[self.options indexOfObject:option] 
-                                                                                  forController:self 
+            AppearanceTypeStackView *stackView = [[AppearanceTypeStackView alloc] initWithType:[self.options indexOfObject:option]
+                                                                                  forController:self
                                                                                   withImage:[UIImage imageNamed:option[@"image"] inBundle:prefsBundle compatibleWithTraitCollection:NULL]
                                                                                   andText:option[@"text"]
                                                                                   andSpecifier:specifier];
@@ -117,12 +120,22 @@
             [stackView.topAnchor constraintEqualToAnchor:self.containerStackView.topAnchor constant:16].active = true;
             [stackView.bottomAnchor constraintEqualToAnchor:self.containerStackView.bottomAnchor constant:-16].active = true;
         }
+        [self.contentView addSubview:self.containerScrollView];
+        [self.containerScrollView addSubview:self.containerStackView];
 
-        [self.contentView addSubview:self.containerStackView];
+        [self.containerScrollView.widthAnchor constraintEqualToAnchor:self.widthAnchor].active = true;
+        [self.containerScrollView.heightAnchor constraintEqualToAnchor:self.heightAnchor].active = true;
 
-        [self.containerStackView.heightAnchor constraintEqualToAnchor:self.heightAnchor].active = true;
-        [self.containerStackView.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = true;
-        [self.containerStackView.centerYAnchor constraintEqualToAnchor:self.centerYAnchor].active = true;
+        [self.containerScrollView.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = true;
+        [self.containerScrollView.centerYAnchor constraintEqualToAnchor:self.centerYAnchor].active = true;
+
+        [self.containerStackView.leadingAnchor constraintEqualToAnchor:self.containerScrollView.leadingAnchor].active = true;
+        [self.containerStackView.trailingAnchor constraintEqualToAnchor:self.containerScrollView.trailingAnchor].active = true;
+        [self.containerStackView.bottomAnchor constraintEqualToAnchor:self.containerScrollView.bottomAnchor].active = true;
+        [self.containerStackView.topAnchor constraintEqualToAnchor:self.containerScrollView.topAnchor].active = true;
+        [self.containerStackView.heightAnchor constraintEqualToAnchor:self.containerScrollView.heightAnchor].active = true;
+
+
     }
 
     return self;

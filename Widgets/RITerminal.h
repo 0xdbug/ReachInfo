@@ -1,5 +1,5 @@
 //
-//  bashLike.h
+//  RITerminal.h
 //  ReachInfo
 //
 //  Created by 1di4r on 7/31/20.
@@ -11,7 +11,7 @@
 #include <ifaddrs.h>
 #include <arpa/inet.h>
 
-@interface bashLike : UIView
+@interface RITerminal : UIView
 -(void)show;
 -(NSTimeInterval)uptime;
 -(NSString *)getIPAddress;

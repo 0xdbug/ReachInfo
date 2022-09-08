@@ -27,9 +27,6 @@
 				<string>1di4r</string>
 				<key>user</key>
 				<string>1di4r</string>
-				<!-- cephei no worky -->
-				<key>iconURL</key>
-				<string>https://pbs.twimg.com/profile_images/1281615952812093441/cQ0bz8HH_400x400.jpg</string>
 			</dict>
 			<dict>
                 <key>cell</key>
@@ -50,55 +47,6 @@
 				<string>Enabled</string>
 				<key>PostNotification</key>
 				<string>com.1di4r.reachinfoprefs/ReloadPrefs</string>
-			</dict>
-			<dict>
-				<key>cell</key>
-				<string>PSDefaultCell</string>
-				<key>cellClass</key>
-				<string>AppearanceSelectionTableCell</string>
-				<key>options</key>
-				<array>
-					<dict>
-						<key>text</key>
-						<string>MediaPlayer</string>
-						<key>image</key>
-						<string>MediaPlayer</string>
-					</dict>
-					<dict>
-						<key>text</key>
-						<string>Clock</string>
-						<key>image</key>
-						<string>Clock</string>
-					</dict>
-					<dict>
-						<key>text</key>
-						<string>Terminal</string>
-						<key>image</key>
-						<string>Terminal</string>
-					</dict>
-                    <dict>
-						<key>text</key>
-						<string>UpNext</string>
-						<key>image</key>
-						<string>Reminders</string>
-					</dict>
-                    <dict>
-						<key>text</key>
-						<string>Weather</string>
-						<key>image</key>
-						<string>Weather</string>
-					</dict>
-				</array>
-				<key>defaults</key>
-				<string>com.1di4r.reachinfoprefs</string>
-				<key>PostNotification</key>
-				<string>com.1di4r.reachinfoprefs/ReloadPrefs</string>
-				<key>key</key>
-				<string>Widget</string>
-				<key>height</key>
-				<integer>210</integer>
-                <key>tintColor</key>
-                <string>#303242</string>
 			</dict>
 			<dict>
 				<key>cell</key>
@@ -138,7 +86,7 @@
 				<key>subtitle</key>
 				<string>Github</string>
 				<key>url</key>
-				<string>https://github.com/1di4r/ReachInfo</string>
+				<string>https://github.com/0xdbug/ReachInfo</string>
 			</dict>
 		</array>
 		<key>title</key>

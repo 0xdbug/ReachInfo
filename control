@@ -1,6 +1,6 @@
 Package: com.twickd.1di4r.reachinfo
 Name: ReachInfo
-Version: 2.1.3
+Version: 2.1.5
 Architecture: iphoneos-arm
 Description: Reachability modernized.
 Maintainer: 1di4r

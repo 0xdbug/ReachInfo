@@ -3,6 +3,69 @@
     <dict>
         <key>items</key>
         <array>
+		<dict>
+                <key>cell</key>
+                <string>PSGroupCell</string>
+                <key>label</key>
+                <string>Widget</string>
+                <key>footerText</key>
+				<string>Swipe and Select a Widget.</string>
+            </dict>
+		<dict>
+				<key>cell</key>
+				<string>PSDefaultCell</string>
+				<key>cellClass</key>
+				<string>AppearanceSelectionTableCell</string>
+				<key>options</key>
+				<array>
+					<dict>
+						<key>text</key>
+						<string>MediaPlayer</string>
+						<key>image</key>
+						<string>MediaPlayer</string>
+					</dict>
+					<dict>
+						<key>text</key>
+						<string>Clock</string>
+						<key>image</key>
+						<string>Clock</string>
+					</dict>
+					<dict>
+						<key>text</key>
+						<string>Terminal</string>
+						<key>image</key>
+						<string>Terminal</string>
+					</dict>
+					<dict>
+						<key>text</key>
+						<string>Astros</string>
+						<key>image</key>
+						<string>Astro</string>
+					</dict>
+                    <dict>
+						<key>text</key>
+						<string>UpNext</string>
+						<key>image</key>
+						<string>Reminders</string>
+					</dict>
+                    <dict>
+						<key>text</key>
+						<string>Weather</string>
+						<key>image</key>
+						<string>Weather</string>
+					</dict>
+				</array>
+				<key>defaults</key>
+				<string>com.1di4r.reachinfoprefs</string>
+				<key>PostNotification</key>
+				<string>com.1di4r.reachinfoprefs/ReloadPrefs</string>
+				<key>key</key>
+				<string>Widget</string>
+				<key>height</key>
+				<integer>210</integer>
+                <key>tintColor</key>
+                <string>#303242</string>
+			</dict>
             <dict>
                 <key>cell</key>
                 <string>PSGroupCell</string>
@@ -151,7 +214,7 @@
 				<key>PostNotification</key>
 				<string>com.1di4r.reachinfoprefs/ReloadPrefs</string>
 			</dict>
-            
+
         </array>
         <key>title</key>
         <string>Preferences</string>

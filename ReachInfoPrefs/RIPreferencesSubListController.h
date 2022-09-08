@@ -4,6 +4,7 @@
 #import <CepheiPrefs/HBAboutListController.h>
 #import <CepheiPrefs/HBTwitterCell.h>
 #import <Cephei/HBPreferences.h>
+#import "libappearancecell/libappearancecell.h"
 
 @interface RIPreferencesSubListController : HBListController
 @end
