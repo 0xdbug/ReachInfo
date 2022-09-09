@@ -52,7 +52,7 @@
 
 - (double)reachabilityYOffset { // expanding reachability
     if (Enabled && YOffset) return (%orig + YOffsetValue);
-    return (%orig + 40);
+    return (%orig);
 }
 
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1 { // disabling Reachability swipe down

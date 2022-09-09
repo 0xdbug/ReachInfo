@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Cephei/HBPreferences.h>
 #include <sys/sysctl.h>
 #include <ifaddrs.h>
 #include <arpa/inet.h>
@@ -15,6 +16,16 @@
 -(void)show;
 -(NSTimeInterval)uptime;
 -(NSString *)getIPAddress;
+
+@property (nonatomic, retain) UILabel *cmdLabel;
+@property (nonatomic, retain) UILabel *upLabel;
+@property (nonatomic, retain) UILabel *timeLabel;
+@property (nonatomic, retain) UILabel *dateLabel;
+@property (nonatomic, retain) UILabel *battLabel;
+@property (nonatomic, retain) UILabel *IPLabel;
+@property (nonatomic, retain) UILabel *returnLabel;
 @end
 
 NSString *deviceName;
+NSString *day;
+BOOL TerminalPos;
