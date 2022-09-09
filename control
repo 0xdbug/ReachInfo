@@ -3,7 +3,7 @@ Name: ReachInfo
 Version: 2.1.5
 Architecture: iphoneos-arm
 Description: Reachability modernized.
-Maintainer: 1di4r
-Author: 1di4r
+Maintainer: dbug
+Author: dbug
 Section: Tweaks
 Depends: mobilesubstrate (>= 0.9.5000), preferenceloader (>= 2.2.3), firmware (>= 13.0), ws.hbang.common (>= 1.11), com.peterdev.libpddokdo
