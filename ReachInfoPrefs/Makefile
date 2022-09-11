@@ -4,9 +4,8 @@ TARGET = iphone:latest::13.0
 
 include $(THEOS)/makefiles/common.mk
 
-# TODO: CHECK FOR ARM64e
 SYSROOT = $(THEOS)/sdks/iPhoneOS14.5.sdk
-# PREFIX = $(THEOS)/toolchain/Xcode11.xctoolchain/usr/bin/
+PREFIX = $(THEOS)/toolchain/Xcode11.xctoolchain/usr/bin/
 
 BUNDLE_NAME = ReachInfoPrefs
 
