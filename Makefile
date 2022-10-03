@@ -2,7 +2,7 @@ ARCHS = arm64 arm64e
 TARGET = iphone:latest::13.0
 
 SYSROOT = $(THEOS)/sdks/iPhoneOS14.5.sdk
-PREFIX = $(THEOS)/toolchain/Xcode11.xctoolchain/usr/bin/
+PREFIX = $(THEOS)/toolchain/Xcode.xctoolchain/usr/bin/
 
 INSTALL_TARGET_PROCESSES = SpringBoard
 

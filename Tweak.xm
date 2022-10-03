@@ -94,6 +94,7 @@ void reloadPrefs() {
     Widget = [([prefs objectForKey:@"Widget"] ? : 0) intValue];
 
     Shuffle = [([prefs objectForKey:@"kShuffle"] ? : @(NO)) boolValue];
+    ForceDM= [([prefs objectForKey:@"kForceDM"] ? : @(NO)) boolValue];
     NC = [([prefs objectForKey:@"kNC"] ? : @(NO)) boolValue];
     Timeout = [([prefs objectForKey:@"kTimeout"] ? : @(YES)) boolValue];
 

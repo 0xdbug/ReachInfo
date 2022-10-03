@@ -9,6 +9,7 @@
         NSString *selectedWidget = widgetsArray[Widget];
 
         if (@available(iOS 13.0, *)) self.backgroundColor = [UIColor systemBackgroundColor];
+        if (ForceDM) self.backgroundColor = DARK_BG;
         if (Shuffle){
             NSUInteger randomIndex = arc4random_uniform(widgetsArray.count);
             selectedWidget = widgetsArray[randomIndex];

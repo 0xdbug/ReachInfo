@@ -74,6 +74,20 @@
                 <key>footerText</key>
 				<string>When disabled swiping down on widgets will be ignored.</string>
             </dict>
+			<dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>default</key>
+				<false />
+				<key>defaults</key>
+				<string>com.1di4r.reachinfoprefs</string>
+				<key>key</key>
+				<string>kForceDM</string>
+				<key>label</key>
+				<string>Force Dark Mode</string>
+				<key>PostNotification</key>
+				<string>com.1di4r.reachinfoprefs/ReloadPrefs</string>
+			</dict>
             <dict>
 				<key>cell</key>
 				<string>PSSwitchCell</string>
