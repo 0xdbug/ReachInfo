@@ -29,3 +29,5 @@
 NSString *deviceName;
 NSString *day;
 BOOL TerminalPos;
+BOOL ForceDM;
+UIColor *cLabelColor;

@@ -100,6 +100,8 @@ void reloadPrefs() {
 
     YOffset = [([prefs objectForKey:@"kYOffset"] ? : @(NO)) boolValue];
     YOffsetValue = [([prefs objectForKey:@"kYOffsetValue"] ? : 0) floatValue];
+    TerminalPos = [([prefs objectForKey:@"kTerminalPos"] ? : @(YES)) boolValue];
+
 
     CR = [([prefs objectForKey:@"kCR"] ? : @(NO)) boolValue];
     CRValue = [([prefs objectForKey:@"kCRValue"] ? : 0) floatValue];

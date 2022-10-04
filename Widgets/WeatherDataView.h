@@ -21,3 +21,9 @@
 @property (nonatomic, retain) UIImageView *sunriseView;
 @property (nonatomic, retain) UIImageView *sunsetView;
 @end
+
+BOOL ForceDM;
+UIColor *cLabelColor;
+UIColor *cSecondaryLabelColor;
+UIColor *cSecondaryBG;
+

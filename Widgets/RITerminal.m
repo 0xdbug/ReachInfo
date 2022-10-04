@@ -58,11 +58,20 @@
 
 }
 
+-(void)configColors {
+    if (ForceDM) {
+        cLabelColor = [UIColor whiteColor];
+    }else {
+        cLabelColor = [UIColor labelColor];
+    }
+}
+
 -(void)show{
+    [self configColors];
 
     self.cmdLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 220, 18)];
     self.cmdLabel.backgroundColor = [UIColor clearColor];
-    self.cmdLabel.textColor = [UIColor labelColor];
+    self.cmdLabel.textColor = cLabelColor;
     self.cmdLabel.font = [UIFont fontWithName:@"Menlo" size:14];
     deviceName = [[UIDevice currentDevice] name];
     self.cmdLabel.text = [NSString stringWithFormat:@"%@@host:~$ now", deviceName];
@@ -79,7 +88,7 @@
 
     int upTimeI = ([self uptime]) / (60 * 60 * 24);
     self.upLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 220, 18)];
-    self.upLabel.textColor = [UIColor labelColor];
+    self.upLabel.textColor = cLabelColor;
     self.upLabel.backgroundColor = [UIColor clearColor];
     day = @"Day";
     if (upTimeI > 1) day = @"Days";
@@ -115,7 +124,7 @@
     [timeFormatter setDateFormat:@"HH:mm"];
     NSString *timeString = [timeFormatter stringFromDate:time];
     self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 220, 18)];
-    self.timeLabel.textColor = [UIColor labelColor];
+    self.timeLabel.textColor = cLabelColor;
     self.timeLabel.backgroundColor = [UIColor clearColor];
     self.timeLabel.text = [NSString stringWithFormat:@"[TIME] %@  ", timeString];
     self.timeLabel.font = [UIFont fontWithName:@"Menlo" size:dF];
@@ -149,7 +158,7 @@
     [dateFormatter setDateFormat:@"E, MMMM d"];
     NSString *dateString = [dateFormatter stringFromDate:date];
     self.dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 220, 18)];
-    self.dateLabel.textColor = [UIColor labelColor];
+    self.dateLabel.textColor = cLabelColor;
     self.dateLabel.backgroundColor = [UIColor clearColor];
     self.dateLabel.text = [NSString stringWithFormat:@"[DATE] %@", dateString];
     self.dateLabel.font = [UIFont fontWithName:@"Menlo" size:dF];
@@ -194,7 +203,7 @@
     self.battLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 220, 18)];
     self.battLabel.backgroundColor = [UIColor clearColor];
     self.battLabel.text = [NSString stringWithFormat:@"[BATT] [%@] %d%%", deviceBatteryInHash, currentBattery];
-    self.battLabel.textColor = [UIColor labelColor];
+    self.battLabel.textColor = cLabelColor;
     self.battLabel.font = [UIFont fontWithName:@"Menlo" size:dF];
     self.battLabel.adjustsFontSizeToFitWidth = true;
     // self.battLabel.center = CGPointMake(self.superview.center.x + 20, 129);
@@ -223,7 +232,7 @@
 
     NSString *IPAdrr = [self getIPAddress];
     self.IPLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 220, 18)];
-    self.IPLabel.textColor = [UIColor labelColor];
+    self.IPLabel.textColor = cLabelColor;
     self.IPLabel.backgroundColor = [UIColor clearColor];
     self.IPLabel.text = [NSString stringWithFormat:@"[IP-Adrr] %@", IPAdrr];
     self.IPLabel.font = [UIFont fontWithName:@"Menlo" size:dF];
@@ -254,7 +263,7 @@
 
     self.returnLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 220, 18)];
     self.returnLabel.backgroundColor = [UIColor clearColor];
-    self.returnLabel.textColor = [UIColor labelColor];
+    self.returnLabel.textColor = cLabelColor;
     self.returnLabel.font = [UIFont fontWithName:@"Menlo" size:14];
     deviceName = [[UIDevice currentDevice] name];
     self.returnLabel.text = [NSString stringWithFormat:@"%@@host:~$", deviceName];
@@ -295,21 +304,22 @@
 
 }
 @end
-void reloadTerminalPrefs() {
-    HBPreferences *TerminalPrefs = [[HBPreferences alloc] initWithIdentifier:@"com.1di4r.reachinfoprefs"];
-    TerminalPos = [([TerminalPrefs objectForKey:@"kTerminalPos"] ? : @(YES)) boolValue];
-}
+// // why not just put it in tweak.xm?
+// void reloadTerminalPrefs() {
+//     HBPreferences *TerminalPrefs = [[HBPreferences alloc] initWithIdentifier:@"com.1di4r.reachinfoprefs"];
+//     TerminalPos = [([TerminalPrefs objectForKey:@"kTerminalPos"] ? : @(YES)) boolValue];
+// }
 
-void TerminalPrefsChanged(
-    CFNotificationCenterRef center,
-    void *observer,
-    CFStringRef name,
-    const void *object,
-    CFDictionaryRef userInfo) {
-        reloadTerminalPrefs();
-    }
+// void TerminalPrefsChanged(
+//     CFNotificationCenterRef center,
+//     void *observer,
+//     CFStringRef name,
+//     const void *object,
+//     CFDictionaryRef userInfo) {
+//         reloadTerminalPrefs();
+//     }
 
-%ctor {
-    reloadTerminalPrefs();
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, TerminalPrefsChanged, CFSTR("com.1di4r.reachinfoprefs/ReloadPrefs"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-}
+// %ctor {
+//     reloadTerminalPrefs();
+//     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, TerminalPrefsChanged, CFSTR("com.1di4r.reachinfoprefs/ReloadPrefs"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+// }

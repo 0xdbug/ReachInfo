@@ -35,11 +35,11 @@ UIImage *artWorkImage;
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     unsigned char rgba[4];
     CGContextRef context = CGBitmapContextCreate(rgba, 1, 1, 8, 4, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
-    
+
     CGContextDrawImage(context, CGRectMake(0, 0, 1, 1), image.CGImage);
     CGColorSpaceRelease(colorSpace);
     CGContextRelease(context);
-    
+
     if(rgba[3] > 0) {
         CGFloat alpha = alphaValue;
         if (alphaValue == 1) alpha = ((CGFloat)rgba[3])/255.0;
@@ -84,7 +84,7 @@ UIImage *artWorkImage;
 
             if (dict && dict[(__bridge NSString *)kMRMediaRemoteNowPlayingInfoArtworkData]) {
                 artWorkImage = [UIImage imageWithData:[dict objectForKey:(__bridge NSString*)kMRMediaRemoteNowPlayingInfoArtworkData]];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"updateBackgroundNotification" 
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"updateBackgroundNotification"
                 object:self];
                 NSLog(@"[ReachInfo] %@", arg1);
             }

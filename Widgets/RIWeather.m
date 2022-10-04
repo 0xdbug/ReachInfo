@@ -2,7 +2,18 @@
 
 @implementation RIWeather
 
+-(void)configColors {
+    if (ForceDM) {
+        cLabelColor = [UIColor whiteColor];
+        cSecondaryLabelColor = [UIColor colorWithRed: 0.92 green: 0.92 blue: 0.96 alpha: 0.6];
+    }else {
+        cLabelColor = [UIColor labelColor];
+        cSecondaryLabelColor = [UIColor secondaryLabelColor];
+    }
+}
+
 - (void)show{
+    [self configColors];
 
     [[PDDokdo sharedInstance] refreshWeatherData];
     NSDictionary *weatherData = [[PDDokdo sharedInstance] weatherData];
@@ -21,7 +32,7 @@
     self.locationLabel = [UILabel new];
     self.locationLabel.text = location;
     self.locationLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
-    self.locationLabel.textColor = [UIColor secondaryLabelColor];
+    self.locationLabel.textColor = cSecondaryLabelColor;
     //self.locationLabel.backgroundColor = [UIColor redColor];
     [self.locationLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self addSubview:self.locationLabel];
@@ -29,7 +40,7 @@
     self.infoLabel = [UILabel new];
     self.infoLabel.text = [NSString stringWithFormat:@"%@, %@", condition, temperature];
     self.infoLabel.font = [UIFont systemFontOfSize:20 weight:UIFontWeightSemibold];
-    //self.infoLabel.textColor = [UIColor secondaryLabelColor];
+    self.infoLabel.textColor = cLabelColor;
     //self.infoLabel.backgroundColor = [UIColor redColor];
     [self.infoLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self addSubview:self.infoLabel];

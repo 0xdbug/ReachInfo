@@ -29,7 +29,12 @@
     [clockView.centerXAnchor constraintEqualToAnchor:self.superview.centerXAnchor].active = YES;
 }
 - (BOOL)isLightMode{
-    if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleLight) return YES;
+    if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleLight) {
+        if (ForceDM) {
+            return NO;
+        }
+        return YES;
+    }
     return NO;
 }
 

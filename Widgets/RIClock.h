@@ -1,4 +1,5 @@
 #import <UIKit/UIKit.h>
+#import <Cephei/HBPreferences.h>
 #import "ClockView.h"
 
 @interface RIClock : UIView
@@ -11,3 +12,6 @@
 #define clockMinDarkPath @"/Library/Application Support/ReachInfo.bundle/ClockMin_dark.png"
 #define clockHourPath @"/Library/Application Support/ReachInfo.bundle/ClockHour.png"
 #define clockHourDarkPath @"/Library/Application Support/ReachInfo.bundle/ClockHour_dark.png"
+
+BOOL ForceDM;
+

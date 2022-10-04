@@ -21,6 +21,7 @@ BOOL Enabled;
 BOOL NC;
 BOOL Timeout;
 BOOL YOffset;
+BOOL TerminalPos;
 float YOffsetValue;
 BOOL CR;
 float CRValue;

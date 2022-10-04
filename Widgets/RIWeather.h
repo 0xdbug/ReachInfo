@@ -8,3 +8,7 @@
 @property (nonatomic, retain) UILabel *locationLabel;
 @property (nonatomic, retain) UILabel *infoLabel;
 @end
+
+BOOL ForceDM;
+UIColor *cLabelColor;
+UIColor *cSecondaryLabelColor;

@@ -12,3 +12,8 @@
 @property (nonatomic, retain) UILabel *EventContent;
 @property (nonatomic, retain) UILabel *EventDate;
 @end
+
+
+BOOL ForceDM;
+UIColor *cLabelColor;
+UIColor *cSecondaryBG;
